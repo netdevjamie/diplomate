@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FC710835-9961-4487-B8C3-7E22EC6F564B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>diplomate.UITests</RootNamespace>
+    <AssemblyName>diplomate.UITests</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="NUnit" Version="3.12.0" />
+    <PackageReference Include="Xamarin.UITest" Version="3.0.3" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\diplomate.iOS\diplomate.iOS.csproj">
+      <Project>{0AC27242-C600-4D3C-9B98-9D53D4644246}</Project>
+      <Name>diplomate.iOS</Name>
+      <ReferenceOutputAssembly>False</ReferenceOutputAssembly>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\diplomate.Android\diplomate.Android.csproj">
+      <Project>{78141A56-E7AD-4DC1-BCB5-261C4EFA2A01}</Project>
+      <Name>diplomate.Android</Name>
+      <ReferenceOutputAssembly>False</ReferenceOutputAssembly>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Tests/BaseTest.cs" />
+    <Compile Include="Tests/MockDataTests.cs" />
+    <Compile Include="Pages/BasePage.cs" />
+    <Compile Include="Pages/ItemsPage.cs" />
+    <Compile Include="Pages/NewItemPage.cs" />
+    <Compile Include="AppInitializer.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>
